@@ -1,0 +1,4 @@
+READ ME FIRST
+
+Pentru rulare, se deschide un terminal in Linux si se ruleaza comanda "make" ce va compila programul, iar pentru rulare, se va rula comanda "make run"
+Programul primeste la intrare 3 argumente: topologia grafului ce va rezolva aplicarea filtrului, setul de imagini cu ce tip de filtru sa fie aplicat si un fisier de output ce inregistreaza fiecare nod si cate operatii a facut acesta in modificarea pozei.

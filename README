@@ -1,0 +1,46 @@
+Petre Daniel Marian 335CA
+
+Tema 3 APD
+
+	Toata actiunea se petrece in fisierul tema3.c. Stim ca primim la intrare o serie de 
+fisiere. Fac in asa fel incat toata lumea sa-si inceapa treaba cu citirea topologiei ca toata 
+lumea sa stie ce vecini are. Incepem citirea fisierului in care se afla ce ne intereseaza: ce 
+filtru aplicam, pe ce imagine aplicam si cum se numeste imaginea de iesire. Dupa ce am 
+stabilit de cate ori aplicam filtre, incep sa impart treburile. Procesul cu rank-ul 0 este 
+liderul 
+operaiunii, doar el stie ce pixeli prezinta poza pe care o articulam cu un filtru. Bordez 
+matricea de pixeli cu 0-uri si implicit cresc dimensiunile aceseteia. Verific cati vecini 
+avem si impart numarul de linii catre fiecare copil si le trimit numarul respectiv plus o 
+linie de sus si una de jos a matricii pentru a putea forma blocuri de 3x3. Datele sunt 
+trimise ca si vectori.
+	In celalte procese astept primirea a 3 date: numarul de coloane, numarul de linii si 
+vectorul de pixeli ce trebuie sa ajunga la frunze. Daca procesul curent nu este frunza, 
+atunci este nod intermediar si trebuie sa imparta din nou numarul linii, astfel, calculez din 
+nou cate linii or sa primeasca copiii nodului si le impart, dar de data aceasta, le rup din 
+vector. In cazul in care nodul este frunza, atunci iau tagul primit si aplic formula 
+filtrelor pe vector, iar rezultatul intors este constituit de noua valoare a pixelilor, insa 
+fara bordarea cu 0-uri. Trimit rezultatul parintilor si calculez statistica nodului frunza 
+tocmai parcurs. Odata ajunsa informatia la nodul intermediar, acesta asteapta vectori cu 
+valori prelucrate de la toti copiii lui in ordinea in care au fost trimise listele de pixeli. 
+Reconstituiesc vectorul mare si il trimit mai sus pe arbore pana ajunge la procesul cu rank 
+0. Fiecare proces tine cont de un vector de statistica pe care il trimit catre procesul cu 
+rank 0, adaugand orice statistica noua in lista. Procesul cu rank 0 construieste o imagine 
+.pgm, iar dupa terminarea celor n aplicari de filtre, populez fisierul "statistica.out" cu 
+rezultatele cumulate in vectorul de statistica.
+
+Din ce am testat eu, am observat 2 probleme:
+I. in fisierul de statistica, cu toate ca nodruile 8 si 4 sunt intermediare, apar ca si cand 
+ar fi prelucrat linii de pixeli, cu toate ca eu schimb statistica doar in noduri frunze, 
+partea ciudata e ca daca doar printez la ecran valorile din 
+statistica, acestea apar corect, dar daca le scriu intr-un fisier, se corup (cred) si apar 2 
+numere divizibile cu 12 in dreptul proceselor 4 si 8. 
+
+II. Desi la o privire cu ochiul liber, filtrele sunt bine aplicate, la un diff pe ce mi-a 
+rezultat mie cu ce v-a rezultat voua, se observa mici diferente, dar poza arata dragu, which 
+is nice.
+
+Bibliografie:
+https://stackoverflow.com/questions/11573974/write-to-txt-file
+Laboratorul de APD unde am implementat paradigma Heartbeat
+
+all-nighters all the way

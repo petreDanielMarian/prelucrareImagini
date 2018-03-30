@@ -1,0 +1,5 @@
+4
+sobel 1.pgm 1-s.pgm
+mean_removal 1.pgm 1-m.pgm
+sobel 2.pgm 2-s.pgm
+mean_removal 2.pgm 2-m.pgm
