@@ -1,0 +1,5 @@
+Enunt:
+
+Sa se aplice un filtru pe o imagine data la intrare folosind MPI. Procesele vor comunica intre ele dupa forma topologiei date.
+Procesele cu copii vor da mai departe datele, iar frunzele vor prelucra matricea primita. Dupa prelucrare, imagine trebuie reasamblata
+in procesul de rank 0 (liderul) si afisata.
